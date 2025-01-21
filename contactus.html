@@ -38,6 +38,90 @@
             -webkit-text-fill-color: transparent;
           
         }
+        body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #FFFFFF;
+    color: #564848;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    
+}
+
+.hero {
+    background: linear-gradient(rgba(70, 113, 126, 0.5), rgba(0, 0, 0, 0.5)), url('header-image.jpg') no-repeat center center/cover;
+    color: #ffff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.contact-section {
+    padding: 50px 20px;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.left-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.left-content h2 {
+    margin-bottom: 20px;
+}
+
+.left-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.left-content ul li {
+    margin-bottom: 15px;
+}
+
+.right-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-submit {
+    background-color: #356ca7;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
  @keyframes float-in 
             from {
                 opacity: 0;
@@ -61,11 +145,61 @@
        <a href='callnow.html'> CALL NOW </a>
       
      </div>
-<div class='content'> <h2><b>CONTACT US</b></h2></div>
-    <span> Kindly share your precious feedback with us on our email id such that we can improve our site and services.
-     Your positive feedback will help our team work more efficiently 
-    and feel more motivated. We would try our best to improve in case for complaints.
-    email id = <a href='email'>Here4UTeam@gmail.com</a></span>
-   
+
+    <header class="hero">
+        <div class="container">
+            <h1>Contact Us</h1>
+        </div>
+    </header>
+
+    <main class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="left-content">
+                    <h2>Let’s Start a Conversation</h2>
+                    <p>Ask how we can help you:</p>
+                    <ul>
+                        <li><strong>See our platform in action</strong>: Request a personalized demo.</li>
+                        <li><strong>Master performance marketing</strong>: Learn from expert resources and courses.</li>
+                    </ul>
+                </div>
+
+                <div class="right-content">
+                    <form id="contactForm" onsubmit="return handleFormSubmit(event)">
+                        <p><strong>Please note: all fields are required.</strong></p>
+                        <div class="form-group">
+                            <input type="text" name="firstName" id="firstName" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="lastName" id="lastName" placeholder="Last Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" id="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js">
+        function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    alert(`Thank you, ${firstName} ${lastName}! Your message has been received.`);
+    
+    document.getElementById('contactForm').reset();
+    return false;
+}
+        </script
 </body>
 </html>
